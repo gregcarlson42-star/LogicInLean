@@ -108,8 +108,9 @@ clone rather than copying its files into this project's source tree.
 - [Logic and Proof](https://github.com/leanprover-community/logic_and_proof)
   is a textbook and exercise resource focused on logic and Lean, with a web
   edition at [leanprover.github.io/logic_and_proof](https://leanprover.github.io/logic_and_proof).
-  Its repository README currently describes older Python/LaTeX build tooling;
-  use it as a learning resource rather than as a Lake dependency.
+  Its Lean materials have been updated to Lean 4. The older Python/LaTeX
+  instructions in its repository are for building the book, not for using its
+  Lean examples. Use it as a learning resource rather than as a Lake dependency.
 - [Lean 4 Game](https://github.com/leanprover-community/lean4game) is the
   framework for interactive theorem-proving games; it is useful if you later
   want to build or contribute logic exercises in a game format.
