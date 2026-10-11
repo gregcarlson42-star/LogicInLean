@@ -6,7 +6,7 @@ predicate logic through formal proofs.
 ## Read on GitHub
 
 You can read the notebook directly on GitHub:
-[`notebooks/PropositionalLogic.ipynb`](notebooks/PropositionalLogic.ipynb).
+[`notebooks/chapters/01_PropositionalLogic.ipynb`](notebooks/chapters/01_PropositionalLogic.ipynb).
 GitHub displays the notebook and its saved outputs, but does not run Lean code.
 
 ## Get started
@@ -22,7 +22,7 @@ lake build
 
 The project currently targets Lean `v4.34.1` and uses
 [mathlib](https://github.com/leanprover-community/mathlib4).
-## Lean in Jupyter notebooks
+
 ## Lean in Jupyter notebooks
 
 The notebook uses a Jupyter kernel backed by the Lean REPL. The REPL is pinned
@@ -50,7 +50,7 @@ Start Jupyter Notebook from the project root:
 .venv/bin/jupyter notebook
 ```
 
-Open `notebooks/PropositionalLogic.ipynb`, select the **Lean 4** kernel when
+Open a notebook in `notebooks/chapters/`, select the **Lean 4** kernel when
 prompted, and run cells from top to bottom. The notebook kernel must start from
 the project root so Lake can find `lakefile.toml`.
 
@@ -58,9 +58,39 @@ To use VS Code instead, install the **Jupyter** extension, open this project
 folder, and open the notebook. The Lean kernel is registered separately by the
 setup commands above; select **Lean 4**, not a Python kernel.
 
+When the repository is opened in VS Code, it recommends the Lean 4, Jupyter,
+and Python extensions. These editor extensions do not install the Lean
+notebook kernel; the setup commands above do that.
+
 The Lean Jupyter kernel is a community project, not part of Lean itself. The
 REPL dependency is pinned, and Python packages are isolated in `.venv`; this
 setup does not change elan's global Lean toolchain.
+
+## Organizing notebook chapters
+
+Keep one notebook per chapter in `notebooks/`, with a two-digit number so the
+chapters appear in reading order. Keep the reusable template separate from
+finished chapters:
+
+```text
+notebooks/
+  ChapterTemplate.ipynb
+  chapters/
+    01_PropositionalLogic.ipynb
+    02_ClassicalLogic.ipynb
+    03_PredicateLogic.ipynb
+```
+
+Start a chapter by copying `ChapterTemplate.ipynb` into `notebooks/chapters/`
+and giving the copy its number and topic. Each chapter notebook is standalone:
+it has its own explanations, examples, exercises, imports, and glossary. Add
+only terms newly introduced in that chapter to its glossary; link to earlier
+chapters for terms already explained. Link a chapter from this README when it
+is ready to share. Keep each notebook focused on one topic, explain ideas in
+Markdown cells, and place Lean examples close to their explanations. Run cells
+from top to bottom before sharing so saved outputs match the current notebook.
+The template already selects the **Lean 4** kernel and imports Mathlib and this
+project's `Logic` library.
 
 ## Learning path
 
