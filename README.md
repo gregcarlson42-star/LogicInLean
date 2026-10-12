@@ -85,30 +85,46 @@ Start a chapter by copying `ChapterTemplate.ipynb` into `notebooks/chapters/`
 and giving the copy its number and topic. Each chapter notebook is standalone:
 it has its own explanations, examples, exercises, imports, and glossary. Add
 only terms newly introduced in that chapter to its glossary; link to earlier
-chapters for terms already explained. Link a chapter from this README when it
-is ready to share. Keep each notebook focused on one topic, explain ideas in
-Markdown cells, and place Lean examples close to their explanations. Run cells
-from top to bottom before sharing so saved outputs match the current notebook.
-The template already selects the **Lean 4** kernel and imports Mathlib and this
-project's `Logic` library.
+chapters for terms already explained. Give each chapter its own **References
+and further reading** section, with links to the relevant textbook chapters
+and useful background sites such as the Stanford Encyclopedia of Philosophy.
+Prefer specific chapter or section links and briefly explain each source's
+relevance. Link a chapter from this README when it is ready to share. Keep each
+notebook focused on one topic, explain ideas in Markdown cells, and place Lean
+examples close to their explanations. Run cells from top to bottom before
+sharing so saved outputs match the current notebook. The template already
+selects the **Lean 4** kernel and imports Mathlib and this project's `Logic`
+library.
 
 ## Learning path
 
-1. Read `Logic/Propositional.lean`: prove conjunction, disjunction, implication,
-   and equivalence results by constructing and unpacking proofs.
-2. Add exercises such as `P ∧ Q → P`, `P → P ∨ Q`, and the transitivity of `↔`.
-   Try term-style proofs first, then use tactics like `intro`, `rcases`,
-   `constructor`, and `exact`.
-3. Compare intuitionistically valid results with the explicit classical
-   principles in `Logic/Classical.lean`. Try proving excluded middle without
-   `classical`, and observe what Lean allows.
-4. Work through `Logic/Predicate.lean`: practice moving quantifiers through
-   connectives, and note where witness construction is needed for `∃`.
-5. Extend the project with your own modules: relations, equality, finite
-   truth tables, or a syntax-and-semantics model for propositional formulas.
-6. Learn Kripke semantics: define worlds, an accessibility relation, and
-   truth-at-a-world, then formalize and prove basic properties of necessity.
-   See the Kripke and modal-logic repositories below for examples to study.
+This project is being developed as a hands-on companion to
+[*Logic and Proof*](https://leanprover-community.github.io/logic_and_proof/),
+which is the primary textbook informing the topics and progression here. Read
+the relevant textbook material alongside each notebook: the book develops the
+logic, while these notebooks provide a place to experiment with Lean proofs.
+
+
+1. Start with [Chapter 1: Propositional Logic](notebooks/chapters/01_PropositionalLogic.ipynb).
+   Read the explanations alongside the Lean cells, and try each proof yourself
+   before running the completed version.
+2. In the disjunction-commutativity example, compare the three proofs using
+   `rcases`, `cases`, and `Or.elim`. They prove the same statement but show
+   different ways to split `P ∨ Q` into cases. Use the chapter glossary to keep
+   track of unfamiliar Lean words such as `exact` and `fun`.
+3. Experiment by changing the examples: change a hypothesis (h) or goal, try a
+   proof line, and read Lean's error when the types do not match. Add new terms
+   to a chapter's glossary as you meet them.
+4. Next, work through `Logic/Propositional.lean` and try related statements
+   such as `P ∧ Q → P`, `P → P ∨ Q`, and the transitivity of `↔`. Practice
+   introducing assumptions, building conjunctions, and splitting disjunctions.
+5. Continue to classical logic in `Logic/Classical.lean`, then predicate logic
+   in `Logic/Predicate.lean`. Notice where classical reasoning is needed and
+   where existential proofs require constructing a witness.
+6. Later topics could include relations, equality, finite truth tables, or a
+   syntax-and-semantics model for propositional formulas. For modal logic,
+   explore Kripke semantics by defining worlds, an accessibility relation, and
+   truth-at-a-world.
 
 `Logic.lean` imports the learning modules and is the default library target.
 Keep new proofs in appropriately named files under `Logic/`, then import them
@@ -136,11 +152,12 @@ clone rather than copying its files into this project's source tree.
   is a maintained, hands-on Lean 4 tutorial. Its early logic chapters complement
   the proof patterns in this project.
 - [Logic and Proof](https://github.com/leanprover-community/logic_and_proof)
-  is a textbook and exercise resource focused on logic and Lean, with a web
-  edition at [leanprover.github.io/logic_and_proof](https://leanprover.github.io/logic_and_proof).
+  is the primary textbook for this project: a resource on logic, proof, and
+  interactive theorem proving with Lean, with a web edition at
+  [leanprover.github.io/logic_and_proof](https://leanprover.github.io/logic_and_proof).
   Its Lean materials have been updated to Lean 4. The older Python/LaTeX
   instructions in its repository are for building the book, not for using its
-  Lean examples. Use it as a learning resource rather than as a Lake dependency.
+  Lean examples. We use it as a learning resource rather than as a Lake dependency.
 - [Lean 4 Game](https://github.com/leanprover-community/lean4game) is the
   framework for interactive theorem-proving games; it is useful if you later
   want to build or contribute logic exercises in a game format.
